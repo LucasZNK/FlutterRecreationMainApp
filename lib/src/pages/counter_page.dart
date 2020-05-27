@@ -30,46 +30,54 @@ class _CounterPageState extends State<CounterPage> {
           ],
         )),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-        floatingActionButton: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            FloatingActionButton(
-              backgroundColor: Color.fromRGBO(400, 345, 222, 34),
-              onPressed: () {
-                setState(() {
-                  if (_counter < 1) {
-                    return;
-                  }
-                  _counter--;
-                });
-              },
-              child: Center(
-                child: Icon(Icons.remove),
-              ),
-            ),
-            FloatingActionButton(
-              backgroundColor: Color.fromRGBO(400, 345, 222, 34),
-              onPressed: () {
-                setState(() {
-                  _counter++;
-                });
-              },
-              child: Center(
-                child: Icon(Icons.add),
-              ),
-            ),
-            FloatingActionButton(
-              backgroundColor: Color.fromRGBO(400, 345, 222, 34),
-              onPressed: () {
-                setState(() {
-                  _counter = 0;
-                });
-              },
-              child: Center(
-                child: Icon(Icons.undo),
-              ),
-            ),
-          ],
-        ));
+        floatingActionButton: _createButtons());
+  }
+
+  Widget _createButtons() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        SizedBox(width: 10.0),
+        FloatingActionButton(
+          backgroundColor: Color.fromRGBO(400, 345, 222, 34),
+          onPressed: () {
+            setState(() {
+              if (_counter < 1) {
+                return;
+              }
+              _counter--;
+            });
+          },
+          child: Center(
+            child: Icon(Icons.remove),
+          ),
+        ),
+        SizedBox(width: 10.0),
+        FloatingActionButton(
+          backgroundColor: Color.fromRGBO(400, 345, 222, 34),
+          onPressed: () {
+            setState(() {
+              _counter++;
+            });
+          },
+          child: Center(
+            child: Icon(Icons.add),
+          ),
+        ),
+        Expanded(child: SizedBox(width: 10.0)),
+        FloatingActionButton(
+          backgroundColor: Color.fromRGBO(400, 345, 222, 34),
+          onPressed: () {
+            setState(() {
+              _counter = 0;
+            });
+          },
+          child: Center(
+            child: Icon(Icons.undo),
+          ),
+        ),
+        SizedBox(width: 10.0),
+      ],
+    );
   }
 }
