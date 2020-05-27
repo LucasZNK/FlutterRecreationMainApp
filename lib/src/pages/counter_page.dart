@@ -7,7 +7,6 @@ class CounterPage extends StatefulWidget {
 
 class _CounterPageState extends State<CounterPage> {
   final TextStyle _textStyle = new TextStyle(fontSize: 25);
-
   int _counter = 0;
 
   @override
