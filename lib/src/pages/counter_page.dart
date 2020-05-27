@@ -1,8 +1,15 @@
-import 'package:flutter/Material.dart';
+import 'package:flutter/material.dart';
 
-class HomePage extends StatelessWidget {
-  final TextStyle textStyle = new TextStyle(fontSize: 25);
-  
+class CounterPage extends StatefulWidget {
+  @override
+  createState() => _CounterPageState();
+}
+
+class _CounterPageState extends State<CounterPage> {
+  final TextStyle _textStyle = new TextStyle(fontSize: 25);
+
+  int _counter = 10;
+
   @override
   Widget build(context) {
     return Scaffold(
@@ -17,16 +24,18 @@ class HomePage extends StatelessWidget {
         children: <Widget>[
           Text(
             "Numero de clicks:",
-            style: textStyle,
+            style: _textStyle,
           ),
-          Text("0", style: textStyle),
+          Text('$_counter', style: _textStyle),
         ],
       )),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton(
         backgroundColor: Color.fromRGBO(400, 345, 222, 34),
         onPressed: () {
-          print("Hola mundo");
+          setState(() {
+            _counter++;
+          });
         },
         child: Center(
           child: Icon(Icons.add),
