@@ -40,14 +40,7 @@ class _CounterPageState extends State<CounterPage> {
         SizedBox(width: 10.0),
         FloatingActionButton(
           backgroundColor: Color.fromRGBO(400, 345, 222, 34),
-          onPressed: () {
-            setState(() {
-              if (_counter < 1) {
-                return;
-              }
-              _counter--;
-            });
-          },
+          onPressed: _remove,
           child: Center(
             child: Icon(Icons.remove),
           ),
@@ -55,11 +48,7 @@ class _CounterPageState extends State<CounterPage> {
         SizedBox(width: 10.0),
         FloatingActionButton(
           backgroundColor: Color.fromRGBO(400, 345, 222, 34),
-          onPressed: () {
-            setState(() {
-              _counter++;
-            });
-          },
+          onPressed: _add,
           child: Center(
             child: Icon(Icons.add),
           ),
@@ -67,11 +56,7 @@ class _CounterPageState extends State<CounterPage> {
         Expanded(child: SizedBox(width: 10.0)),
         FloatingActionButton(
           backgroundColor: Color.fromRGBO(400, 345, 222, 34),
-          onPressed: () {
-            setState(() {
-              _counter = 0;
-            });
-          },
+          onPressed: _reset,
           child: Center(
             child: Icon(Icons.undo),
           ),
@@ -79,5 +64,22 @@ class _CounterPageState extends State<CounterPage> {
         SizedBox(width: 10.0),
       ],
     );
+  }
+
+  void _add() {
+    setState(() => _counter++);
+  }
+
+  void _remove() {
+    setState(() {
+      if (_counter < 1) {
+        return;
+      }
+      _counter--;
+    });
+  }
+
+  void _reset() {
+    setState(() => _counter = 0);
   }
 }
