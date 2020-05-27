@@ -6,10 +6,10 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(context) {
     return Scaffold(
-      backgroundColor: Color.fromRGBO(183, 245, 245, 34),
       appBar: AppBar(
         title: Text("Lucas App"),
         centerTitle: true,
+        backgroundColor: Color.fromRGBO(400, 345, 222, 34),
       ),
       body: Center(
           child: Column(
@@ -24,7 +24,7 @@ class HomePage extends StatelessWidget {
       )),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Color.fromRGBO(33, 176, 176, 2),
+        backgroundColor: Color.fromRGBO(400, 345, 222, 34),
         onPressed: () {
           print("Hola mundo");
         },
